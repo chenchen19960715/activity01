@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.mi.activity01.dao.ActivityDao">
+    <insert id="insert">
+        INSERT INTO tb_activity (title,category,startTime,endTime,remark,state,createdTime,createdUser)
+            values
+            (#{title},#{category},#{startTime},#{endTime},#{remark},1,now(),#{createdUser})
+    </insert>
+    <!--修改员工信息-->
+    <update id="updateById">
+        UPDATE tb_activity
+        SET
+          title=#{title},
+          remark=#{remark},
+          startTime=#{startTime},
+         endTime=#{endTime},
+         category=#{category}
+         WHERE id=#{id}
+    </update>
+
+</mapper>
